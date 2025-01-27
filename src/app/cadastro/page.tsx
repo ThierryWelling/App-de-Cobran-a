@@ -21,7 +21,7 @@ export default function Cadastro() {
     setLoading(true)
 
     try {
-      const { error } = await supabase.auth.signUp({
+      await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -29,8 +29,6 @@ export default function Cadastro() {
         },
       })
 
-      if (error) throw error
-      
       toast.success('Verifique seu email para confirmar o cadastro')
       router.push('/login')
     } catch (error) {
