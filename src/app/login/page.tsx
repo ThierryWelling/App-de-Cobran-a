@@ -20,16 +20,15 @@ export default function Login() {
     setLoading(true)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      await supabase.auth.signInWithPassword({
         email,
         password,
       })
 
-      if (error) throw error
-      
       router.push('/dashboard')
       toast.success('Login realizado com sucesso!')
     } catch (error) {
+      console.error(error)
       toast.error('Erro ao fazer login')
     } finally {
       setLoading(false)

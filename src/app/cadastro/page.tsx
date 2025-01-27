@@ -32,6 +32,7 @@ export default function Cadastro() {
       toast.success('Verifique seu email para confirmar o cadastro')
       router.push('/login')
     } catch (error) {
+      console.error(error)
       toast.error('Erro ao criar conta')
     } finally {
       setLoading(false)

@@ -26,6 +26,7 @@ export function Sidebar() {
       router.push('/login')
       toast.success('Logout realizado com sucesso!')
     } catch (error) {
+      console.error(error)
       toast.error('Erro ao fazer logout')
     }
   }
